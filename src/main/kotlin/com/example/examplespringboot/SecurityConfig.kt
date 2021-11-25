@@ -20,7 +20,7 @@ class SecurityAssets {
 
 }
 
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 @Order(1)
 class Config(
     val encoder: PasswordEncoder
@@ -46,7 +46,7 @@ class Config(
     }
 }
 
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 @Order(2)
 class ClosedConfig: WebSecurityConfigurerAdapter() {
 

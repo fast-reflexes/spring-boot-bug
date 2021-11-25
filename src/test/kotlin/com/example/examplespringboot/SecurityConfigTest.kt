@@ -41,4 +41,16 @@ class SecurityConfigTest @Autowired constructor(
             // then
             .andExpect(MockMvcResultMatchers.status().`is`(HttpStatus.OK.value()))
     }
+
+    /*@Test
+    fun `access api with authenticated user with appropriate role and expect unauthorized`() {
+        // when
+        mvc.perform(
+            MockMvcRequestBuilders
+                .get("/api/bogus")
+                .with(user("any").authorities(listOf(SimpleGrantedAuthority("ROLE_API_NONUSER"))))
+        )
+            // then
+            .andExpect(MockMvcResultMatchers.status().`is`(HttpStatus.FORBIDDEN.value()))
+    }*/
 }
