@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class ExampleEndpoint {
 
-    @GetMapping(value = ["/api/bogus"])
-    fun bogus(): String {
-        return "bogus"
-    }
+    @GetMapping(value = ["/test"])
+    fun test(): String =
+        "test"
 
 }
