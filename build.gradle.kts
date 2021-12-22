@@ -13,7 +13,10 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
 	mavenCentral()
+	maven(url = "https://repo.spring.io/snapshot" )
 }
+
+ext["spring-security.version"] = "5.7.0-SNAPSHOT"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
