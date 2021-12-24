@@ -1,10 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
-	id("org.springframework.boot") version "2.6.0"
+	id("org.springframework.boot") version "2.6.2"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	kotlin("jvm") version "1.5.31"
-	kotlin("plugin.spring") version "1.5.31"
+	kotlin("jvm") version "1.6.10"
+	kotlin("plugin.spring") version "1.6.10"
 }
 
 group = "com.example"
@@ -13,10 +15,7 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
 	mavenCentral()
-	maven(url = "https://repo.spring.io/snapshot" )
 }
-
-ext["spring-security.version"] = "5.7.0-SNAPSHOT"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
@@ -41,6 +40,9 @@ tasks.withType<Test> {
 
 tasks.test {
 	testLogging {
+		events(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED)
 		showStandardStreams = true
+		showStackTraces = true
+		exceptionFormat = TestExceptionFormat.FULL
 	}
 }
